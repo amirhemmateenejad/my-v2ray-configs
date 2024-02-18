@@ -100,10 +100,10 @@ func main() {
 
 		opts := web.ProfileTestOptions{
 			GroupName:     "Default",
-			SpeedTestMode: "all",        //  pingonly speedonly all
+			SpeedTestMode: "pingonly",   //  pingonly speedonly all
 			PingMethod:    "googleping", // googleping
 			SortMethod:    "rspeed",     // speed rspeed ping rping
-			Concurrency:   50,
+			Concurrency:   300,
 			TestMode:      2,
 			Subscription:  line,
 			Language:      "en", // en cn
@@ -126,7 +126,7 @@ func main() {
 				continue
 			}
 
-			if node.IsOk && ping > 0 && node.MaxSpeed > 0 {
+			if node.IsOk && ping > 0 {
 				outputConfigs = append(outputConfigs, node.Link)
 			}
 		}
